@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fine-Prime-At</title>
+  </head>
+  <body>
+    <script>
+      let primes = [];
+      let MAX_SIZE = 1000005;
+      
+      let primeAt = (num) => {
+        let isPrime = Array(MAX_SIZE).fill(true);
+        let p, i;
+        for (p = 2; p * p < MAX_SIZE; p++) {
+          if (isPrime[p] == true) {
+            for (i = p * p; i < MAX_SIZE; i += p) 
+                isPrime[i] = false;
+          }
+        }
+        for(p = 2; p<MAX_SIZE;p++){
+            if(isPrime[p]){
+                num.push(p);
+            }
+        }
+      };
+      primeAt(primes);
+      
+      console.log(primes[1]);
+
+    </script>
+  </body>
+</html>
